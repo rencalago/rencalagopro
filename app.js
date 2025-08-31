@@ -38,7 +38,7 @@ function allSet(e) {
       window.location = "./index.html";
     }
     if (value === "blog") {
-      window.location = "./blog.html";
+      window.location = "https://www.rencalago.com";
     }
   });
 
@@ -49,7 +49,7 @@ function allSet(e) {
       if (value === "mainHome") {
         window.location = `./index.html`;
       } else if (value === "blog") {
-        window.location = `./blog.html`;
+        window.location = `https://www.rencalago.com`;
       } else {
         window.location = `./${bestName}.html`;
       }
