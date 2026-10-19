@@ -1,58 +1,22 @@
-const hamburger = document.querySelector(".hamburger");
-const menuItems = document.querySelector(".menu-items");
-const menuList = document.querySelectorAll(".menulist");
-const blog = document.getElementById("blog");
-const websiteTitle = document.querySelector(".website-title");
-const home = document.getElementById("home");
+// Mobile menu toggle
+const toggle = document.querySelector(".menu-toggle");
+const nav = document.getElementById("site-nav");
 
-//event listener
-hamburger.addEventListener("click", menuBtn);
-window.addEventListener("DOMContentLoaded", allSet);
+toggle.addEventListener("click", () => {
+  const isOpen = nav.classList.toggle("open");
+  toggle.classList.toggle("open", isOpen);
+  toggle.setAttribute("aria-expanded", String(isOpen));
+  toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+});
 
-//functions
-function menuBtn(e) {
-  hamburger.classList.toggle("active");
-  menuItems.classList.toggle("active");
-  menuList.forEach(function (menu) {
-    menu.addEventListener("click", function () {
-      hamburger.classList.remove("active");
-      menuItems.classList.remove("active");
-    });
-  });
-}
-
-//social media
-const smBtn = document.querySelectorAll(".sMedia");
-
-smBtn.forEach(function (btn) {
-  btn.addEventListener("click", function (e) {
-    const socialItem = e.currentTarget.dataset.id;
-    window.location = `https://www.${socialItem}.com/rencalago`;
+// Close the mobile menu after picking a link
+nav.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("open");
+    toggle.classList.remove("open");
+    toggle.setAttribute("aria-expanded", "false");
   });
 });
 
-function allSet(e) {
-  websiteTitle.addEventListener("click", function (e) {
-    const value = e.currentTarget.dataset.id;
-    if (value === "mainHome") {
-      window.location = "./index.html";
-    }
-    if (value === "blog") {
-      window.location = "https://www.rencalago.com";
-    }
-  });
-
-  menuList.forEach(function (menu) {
-    menu.addEventListener("click", function (e) {
-      const value = e.currentTarget.dataset.id;
-      let bestName = e.currentTarget.textContent;
-      if (value === "mainHome") {
-        window.location = `./index.html`;
-      } else if (value === "blog") {
-        window.location = `https://www.rencalago.com`;
-      } else {
-        window.location = `./${bestName}.html`;
-      }
-    });
-  });
-}
+// Current year in footer
+document.getElementById("year").textContent = new Date().getFullYear();
