@@ -187,8 +187,18 @@ p {
   align-items: center;
 }
 
-.hero .eyebrow {
+.hero-name {
+  font-size: 1.1rem;
+  font-weight: 600;
   color: var(--accent);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
+
+.tagline {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
 }
 
 .lead {
