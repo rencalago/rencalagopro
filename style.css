@@ -207,12 +207,17 @@ p {
   max-width: 36rem;
 }
 
+.hero-photo {
+  min-width: 0;
+}
+
 .hero-photo img {
-  width: min(320px, 100%);
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 6px solid var(--accent);
+  display: block;
+  width: min(480px, 100%);
+  height: auto;
+  border-radius: 28px;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.35),
+    0 12px 24px -12px rgba(0, 0, 0, 0.2);
   margin: 0 auto;
 }
 
@@ -424,6 +429,10 @@ section {
 
   .hero-photo {
     order: -1;
+  }
+
+  .hero-photo img {
+    width: min(420px, 100%);
   }
 
   .menu-toggle {
